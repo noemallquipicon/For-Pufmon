@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Myriam 💖</title>
+    <style>
+        body {
+            background-color: #ffccd5;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .mensaje {
+            font-size: 32px;
+            color: #6d6875;
+            margin-top: 20px;
+        }
+        .botones {
+            margin-top: 20px;
+        }
+        .boton {
+            font-size: 28px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .si {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background-color: #6d6875;
+            color: white;
+        }
+        .snoopy {
+            margin-top: 20px;
+            width: 300px;
+        }
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.imgur.com/nZidj22.gif" alt="Snoopy" class="snoopy" id="snoopyInicial">
+    <h1 id="titulo">Para Myriam 💖</h1>
+    <p class="mensaje" id="pregunta">¿Quieres ser mi San Valentín? 💕</p>
+    
+    <div class="botones">
+        <button class="boton si" id="btnSi" onclick="aceptar()">Sí</button>
+        <button class="boton no" id="btnNo" onmouseover="huir()">No</button>
+    </div>
+    
+    <div id="respuesta" class="oculto">
+        <p class="mensaje" style="font-size: 64px; font-weight: bold;">¡Sabía que aceptarías! 💖</p>
+        <img src="https://i.imgur.com/T7hghs0.gif" alt="Snoopy festejando" class="snoopy">
+    </div>
+    
+    <audio controls autoplay loop>
+        <source src="https://github.com/noemallquipicon/Music/releases/download/music-release-1/Yung.Kai.-.Blue.Sub.Espanol.Lyrics.-.320.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
+    <script>
+        let btnSi = document.getElementById("btnSi");
+        let btnNo = document.getElementById("btnNo");
+        let siSize = 28;
+
+        function aceptar() {
+            document.getElementById("pregunta").style.display = "none";
+            document.querySelector(".botones").style.display = "none";
+            document.getElementById("respuesta").classList.remove("oculto");
+            document.getElementById("snoopyInicial").style.display = "none";
+            document.getElementById("titulo").style.display = "none";
+        }
+        
+        function huir() {
+            siSize += 5;
+            btnSi.style.fontSize = siSize + "px";
+            btnSi.style.padding = (siSize / 2) + "px " + (siSize) + "px";
+            btnNo.style.position = "absolute";
+            btnNo.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            btnNo.style.top = Math.random() * (window.innerHeight - 100) + "px";
+        }
+    </script>
+</body>
+</html>
